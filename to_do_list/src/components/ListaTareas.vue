@@ -1,37 +1,28 @@
 <template>
     <div class="lista-tareas">
         <ul>
-            <li v-for="(tarea, index) in tareasFiltradas" :key="index" :class="{ completada: tarea.completada }">
-                <span @click="marcarCompletada(index)">
-                    {{ tarea.titulo }}
-                </span>
+            <li v-for="(tarea, index) in tareas" :key="index" :class="{ completada: tarea.completada }">
+                {{ tarea.titulo }}
+                <button @click="completarTarea(index)">
+                    {{ tarea.completada ? 'Desmarcar' : 'Completar' }}
+                </button>
                 <button @click="eliminarTarea(index)">Eliminar</button>
             </li>
         </ul>
-    </div>
+     </div>
 </template>
 
 <script>
     export default {
-        props: ['tareas', 'filtro'],
-        computed: {
-            tareasFiltradas() {
-                if (this.filtro === 'completadas') {
-                    return this.tareas.filter(tarea => tarea.completada);
-                } else if (this.filtro === 'pendientes') {
-                    return this.tareas.filter(tarea => !tarea.completada);
-                } else {
-                    return this.tareas;
-                }
-            }
-        },
+        props: ['tareas'],
         methods: {
             eliminarTarea(index) {
-                this.$emit('eliminar-tarea', index);
+                this.$emit('tarea-eliminada', index);
             },
-            marcarCompletada(index) {
+            completarTarea(index) {
                 this.$emit('marcar-completada', index);
             }
         }
     };
 </script>
+

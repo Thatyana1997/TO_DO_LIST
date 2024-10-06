@@ -1,7 +1,10 @@
 <template>
     <div id="app">
-        <FormularioTareas @tarea-agregada="agregarTarea" />
-        <ListaTareas :tareas="tareas" @tarea-eliminada="eliminarTarea" />
+        <FormularioTareas @tarea-agregada="agregarTarea" /> 
+        <ListaTareas 
+                     :tareas="tareas" 
+                     @tarea-eliminada="eliminarTarea"  
+                     @marcar-completada="marcarCompletada"/>
     </div>
 </template>
 
@@ -16,15 +19,20 @@
         },
         data() {
             return {
-                tareas: []
+                // Inicializamos el arreglo de tareas como vacío
+                tareas: [  ]
             };
         },
         methods: {
             agregarTarea(nuevaTarea) {
-                this.tareas.push(nuevaTarea);
+                // Al agregar una nueva tarea, la inicializamos con 'completada' en false
+                this.tareas.push({ titulo: nuevaTarea, completada: false });
             },
             eliminarTarea(index) {
                 this.tareas.splice(index, 1);
+            },
+            marcarCompletada(index) {
+                this.tareas[index].completada = !this.tareas[index].completada;
             }
         }
     };
