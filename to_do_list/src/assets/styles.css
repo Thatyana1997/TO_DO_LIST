@@ -95,3 +95,8 @@ h1, h2, h3 {
             .lista-tareas li button:hover {
                 color: var(--secondary-color);
             }
+
+.completada {
+    text-decoration: line-through;
+    color: #9e9e9e;
+}
