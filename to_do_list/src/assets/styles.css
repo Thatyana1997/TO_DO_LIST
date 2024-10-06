@@ -1,0 +1,97 @@
+/* styles.css */
+
+/* Variables de color */
+:root {
+    --primary-color: #4caf50; /* Color primario (verde) */
+    --secondary-color: #81c784; /* Color secundario (verde claro) */
+    --background-color: #f5f5f5; /* Fondo (puede mantenerse igual) */
+    --card-color: #ffffff; /* Color de las tarjetas (puede mantenerse igual) */
+    --text-color: #3e2723; /* Color del texto (café oscuro) */
+    --shadow-color: rgba(0, 0, 0, 0.2); /* Color de sombra (puede mantenerse igual) */
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif; /* Tipografía de Material Design */
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    font-weight: 500; /* Peso de la fuente */
+}
+
+/* Estilo del contenedor principal */
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Estilos del formulario de tareas */
+.formulario-tareas {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+    .formulario-tareas input {
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px var(--shadow-color);
+        margin-right: 10px;
+        width: 70%; /* Ajustar el tamaño */
+        outline: none; /* Sin borde al enfocar */
+    }
+
+    .formulario-tareas button {
+        padding: 10px 20px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        box-shadow: 0 2px 4px var(--shadow-color);
+        transition: background-color 0.3s;
+    }
+
+        .formulario-tareas button:hover {
+            background-color: var(--secondary-color);
+        }
+
+/* Estilo de la lista de tareas */
+.lista-tareas {
+    width: 100%;
+    max-width: 400px; /* Ancho máximo de la lista */
+}
+
+    .lista-tareas ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .lista-tareas li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--card-color);
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px var(--shadow-color);
+    }
+
+        .lista-tareas li button {
+            background-color: transparent;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+            .lista-tareas li button:hover {
+                color: var(--secondary-color);
+            }
