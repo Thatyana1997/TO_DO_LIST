@@ -24,9 +24,9 @@
                     this.$emit('tarea-agregada', this.nuevaTarea);
                     this.nuevaTarea = '';
                 }
-
             }
-        }
+        } 
+
     };
 
 </script>

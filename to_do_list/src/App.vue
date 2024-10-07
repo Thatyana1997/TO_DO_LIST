@@ -21,22 +21,21 @@
             MenuHamburguesa
         },
         data() {
-            return {
-                // Inicializamos el arreglo de tareas como vacío
-                tareas: [],
-                filtroActual: 'todas' // Puede ser 'todas', 'completadas' o 'pendientes'
+            return { 
+                tareas: [],// Inicializamos el arreglo de tareas como vacío
+                filtroActual: 'todas'  
             };
         },
         computed: {
-            tareasFiltradas() {
-                // Aplica el filtro a las tareas
+            // Aplica el filtro a las tareas
+            tareasFiltradas() { 
                 if (this.filtroActual === 'pendientes') {
                     return this.tareas.filter(tarea => !tarea.completada);
                 } else if (this.filtroActual === 'completadas') {
                     return this.tareas.filter(tarea => tarea.completada);
                 }
                 else {
-                    return this.tareas; // Devuelve todas las tareas si el filtro es 'todas'
+                    return this.tareas;  
                 } 
             }
         },
